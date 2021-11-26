@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <div class="main-wrapper">
-      <div class="container">
+      <div class="container-fluid">
         <Header/>
         <Main/>
       </div>
@@ -24,6 +24,11 @@ export default {
 
 <style lang="scss">
 @import './assets/style/vars.scss';
+@import './assets/style/mixins.scss';
 @import './assets/style/generals.scss';
+
+.main-wrapper {
+  min-height: 100vh;
+}
 
 </style>
