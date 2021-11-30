@@ -6,7 +6,7 @@
         @musicGenre="genreReceived"
         />
         <Main
-        :musicGenre="musicGenre"
+        :musicGenre="pippo"
         />
       </div>
     </div>
@@ -21,7 +21,7 @@ export default {
   name: 'App',
   data(){
     return{
-      musicGenre: '',
+      pippo: '',
     }
   },
   components: {
@@ -30,7 +30,7 @@ export default {
   },
   methods: {
     genreReceived(data){
-      this.musicGenre = data;
+      this.pippo = data;
     }
   }
 }

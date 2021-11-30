@@ -14,19 +14,12 @@ import SearchMenu from "./SearchMenu.vue";
 
 export default {
   name: 'Header',
-  data(){
-    return{
-      genreToSend: '',
-    }
-  },
   components:{
     SearchMenu,
   },
   methods:{
     musicGenre(data){
-      this.genreToSend = data;
-      //console.log(this.genreToSend);
-      this.$emit('musicGenre', this.genreToSend);
+      this.$emit('musicGenre', data);
     }
   }
 }
