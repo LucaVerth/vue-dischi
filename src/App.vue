@@ -2,8 +2,12 @@
   <div id="app">
     <div class="main-wrapper">
       <div class="container-fluid">
-        <Header/>
-        <Main/>
+        <Header
+        @musicGenre="genreReceived"
+        />
+        <Main
+        :musicGenre="musicGenre"
+        />
       </div>
     </div>
   </div>
@@ -15,9 +19,19 @@ import Main from "./components/Main.vue";
 
 export default {
   name: 'App',
+  data(){
+    return{
+      musicGenre: '',
+    }
+  },
   components: {
     Header,
     Main,
+  },
+  methods: {
+    genreReceived(data){
+      this.musicGenre = data;
+    }
   }
 }
 </script>

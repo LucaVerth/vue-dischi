@@ -4,7 +4,7 @@
       <div class="container-fluid">
         <div class="row justify-content-center">
           <Cards
-            v-for="(album, index) in albums"
+            v-for="(album, index) in filteredArray"
             :key="index"
             :album="album"
           />
@@ -22,11 +22,13 @@ export default {
   components:{
     Cards,
   },
+  props:{
+    musicGenre: String,
+  },
   data(){
     return{
       albums: [],
       apiData: 'https://flynn.boolean.careers/exercises/api/array/music'
-
     }
   },
   methods:{
@@ -40,6 +42,19 @@ export default {
         .catch(error =>{
           console.error(error);
         })
+    }
+  },
+  computed:{
+    filteredArray(){
+      if(this.musicGenre === ''){
+        return this.albums;
+      }
+      const filteredDiscs = [];
+      this.albums.forEach( el => {
+        if(el.genre === this.musicGenre)
+        filteredDiscs.push(el)
+      });
+      return filteredDiscs;
     }
   },
   mounted(){
